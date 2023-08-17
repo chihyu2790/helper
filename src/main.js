@@ -1,5 +1,8 @@
 import simpleGit from 'simple-git';
 
+const repositoryPath = 'repo-path';
+const commitData = { commitMessage: 'message' };
+
 function compose(...fns) {
   return input => fns.reduceRight((result, fn) => fn(result), input);
 }
@@ -8,6 +11,18 @@ function addAndCommit(git, commitMessage) {
   return git.add('.')
     .commit(commitMessage);
 }
+
+// function checkoutBranch(git, branchName) {
+//   git.checkout(branchName);
+// }
+
+// function getGitStatus(git) {
+//   return git.status();
+// }
+
+// function getGitLog(git) {
+//   return git.log();
+// }
 
 async function openAndCommit(repositoryPath, commitMessage) {
   const git = simpleGit(repositoryPath);
